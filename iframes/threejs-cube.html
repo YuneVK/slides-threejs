@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic Three.js App</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="libs/three.min.js"></script>
+    <script>
+      let camera, scene, renderer, geometry, material, mesh;
+      const init = () => {
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(
+          50,
+          window.innerWidth / window.innerHeight,
+          1,
+          10000
+        );
+        camera.position.z = 500;
+        scene.add(camera);
+        geometry = new THREE.CubeGeometry(200, 200, 200);
+        material = new THREE.MeshNormalMaterial();
+        mesh = new THREE.Mesh(geometry, material);
+        scene.add(mesh);
+        renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+      };
+
+      const render = () => {
+        mesh.rotation.x += 0.005;
+        mesh.rotation.y += 0.01;
+        renderer.render(scene, camera);
+        requestAnimationFrame(render);
+      };
+
+      init();
+      render();
+    </script>
+  </body>
+</html>
