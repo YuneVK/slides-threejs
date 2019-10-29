@@ -43,15 +43,26 @@
     </section>
 
     <section>
+      <article
+        class="slide looping"
+        data-video="https://mavo.io/demos/eshop/video.mp4"
+        style="--url: 'https://mavo.io/demos/eshop'"
+      >
+        <div></div>
+      </article>
+
       <header class="slide">
         <div>
           <p>La web es cada día más compleja (vídeo)</p>
         </div>
       </header>
 
-      <article class="slide">
-        <div>
-          <p>logo webgl</p>
+      <article class="slide inverse">
+        <div style="margin-bottom: -7rem;">
+          <img src="img/WebGL.svg" style="width: 70vw" />
+          <p class="delayed subtitle">
+            <b>Web</b> <b>G</b>raphics <b>L</b>ibrary
+          </p>
         </div>
       </article>
 
@@ -67,21 +78,35 @@
         </div>
       </article>
 
-      <article class="slide">
+      <article class="slide inverse">
         <div>
-          <p>logo webgl</p>
+          <img src="img/WebGL.svg" style="width: 70vw" />
         </div>
       </article>
 
-      <article class="slide">
-        <div>
-          <p>iframe ejemplo mdn</p>
+      <article
+        class="slide iframe dont-resize onscreen-nav mv-target-within"
+        style="--url: 'webgl-cube.html'"
+      >
+        <div class="media-frame">
+          <iframe
+            data-src="iframes/webgl-cube.html"
+            src="iframes/webgl-cube.html"
+          ></iframe>
         </div>
       </article>
 
-      <article class="slide">
+      <article
+        class="slide inverse dont-resize onscreen-nav mv-target-within"
+        style="--url: 'webgl-cube.js'"
+      >
         <div>
-          <p>código mdn</p>
+          <div
+            class="media-frame webgl-code"
+            style="--background-image: url('img/webgl-cube.png')"
+          >
+            <p class="delayed">¡+300 líneas! 😱</p>
+          </div>
         </div>
       </article>
     </section>
@@ -93,18 +118,47 @@
         </div>
       </header>
 
-      <article class="slide">
-        <div>
-          <p>logo three.js</p>
-          <p>Ricardo Cabello</p>
+      <article class="slide inverse" style="background: #fff">
+        <div style="background: #fff">
+          <img src="img/threejs.png" style="width: 60vw; margin-top: -4rem;" />
+          <div class="profile delayed">
+            <img src="img/mr-doob.jpg" alt="Ricardo Cabello" />
+            <p>Ricardo Cabello (Mr.Doob)</p>
+          </div>
         </div>
       </article>
 
-      <article class="slide">
-        <div>
-          <p>Captura repo github</p>
-          <p>Captura sitio web</p>
-          <p>Captura editor</p>
+      <article class="slide subsection webs-frames">
+        <h1>Three.js</h1>
+        <p class="link delayed">
+          <a href="https://github.com/mrdoob/three.js/">👉 Repo de GitHub</a
+          ><span>https://github.com/mrdoob/three.js/</span>
+        </p>
+        <div
+          class="media-frame"
+          style="--background-image: url('img/repo-threejs.png'); --url: 'https://github.com/mrdoob/three.js/'"
+        >
+          <p></p>
+        </div>
+        <p class="link delayed">
+          <a href="https://threejs.org/">👉 Sitio web</a>
+          <span>https://threejs.org/</span>
+        </p>
+        <div
+          class="media-frame"
+          style="--background-image: url('img/web-threejs.png'); --url: 'https://threejs.org/'"
+        >
+          <p></p>
+        </div>
+        <p class="link delayed">
+          <a href="https://threejs.org/editor/">👉 Editor online</a
+          ><span>https://threejs.org/editor/</span>
+        </p>
+        <div
+          class="media-frame"
+          style="--background-image: url('img/editor-threejs.png'); --url: 'https://threejs.org/editor/'"
+        >
+          <p></p>
         </div>
       </article>
 
@@ -207,10 +261,10 @@
 
     <section>
       <header class="slide">
-        <div><h1>Agentes de un escenario 3D</h1></div>
+        <div><h1>Elementos</h1></div>
       </header>
 
-      <header class="slide">
+      <header class="slide inverse">
         <div>
           <h1>Escena</h1>
         </div>
@@ -230,7 +284,7 @@
     </section>
 
     <section>
-      <header class="slide">
+      <header class="slide inverse">
         <div>
           <h1>Cámara</h1>
         </div>
@@ -275,7 +329,7 @@
     </section>
 
     <section>
-      <header class="slide">
+      <header class="slide inverse">
         <div>
           <h1>Renderer</h1>
         </div>
@@ -295,7 +349,7 @@
     </section>
 
     <section>
-      <header class="slide">
+      <header class="slide inverse">
         <div>
           <h1>Objetos</h1>
         </div>
@@ -333,7 +387,7 @@
     </section>
 
     <section>
-      <header class="slide">
+      <header class="slide inverse">
         <div>
           <h1>Luces</h1>
         </div>

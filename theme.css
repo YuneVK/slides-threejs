@@ -29,10 +29,11 @@
   --dark1: hsl(200, 15%, 20%);
   --dark2: hsl(335, 100%, 35%);
 
-  --gradient1: #13547a;
-  --gradient2: #80d0c7;
+  --gradient1: #49a09d;
+  --gradient2: #8062bd;
 
   --black: #212121;
+  --white: #fafafa;
 }
 
 body {
@@ -40,7 +41,7 @@ body {
   font-family: var(--font-body);
   font-weight: 100;
   --darker: rgba(0, 0, 0, 0.12);
-  background: #212121;
+  background: var(--black);
   /* background: linear-gradient(45deg, var(--darker) 25%, transparent 25%, transparent 75%, var(--darker) 75%), */
   /* linear-gradient(45deg, var(--darker) 25%, transparent 25%, transparent 75%, var(--darker) 75%) 20px 20px; */
   background-color: hsl(220, 10%, 97%);
@@ -131,7 +132,7 @@ img {
   align-items: center;
   justify-content: center;
   padding: 2.5rem;
-  background: #212121;
+  background: var(--black);
   /* background: radial-gradient(transparent, rgba(0,0,0,.7)) var(--dark1); */
   color: white;
 }
@@ -176,7 +177,7 @@ section > section > header.slide {
 section > header.slide > h1 {
   margin: auto;
   padding: 0.5em 0.7em;
-  /* background: #212121; */
+  /* background: var(--black); */
   text-align: center;
   font-size: 250%;
   line-height: 1.2;
@@ -393,7 +394,8 @@ h1 {
 
 pre.prism-live {
   /* background: # !important; */
-  background: #212121 linear-gradient(rgba(0, 0, 0, 0.05) 50%, transparent 0) !important;
+  background: var(--black)
+    linear-gradient(rgba(0, 0, 0, 0.05) 50%, transparent 0) !important;
   background-origin: content-box !important;
   background-size: auto 3em !important;
   background-attachment: local !important;
@@ -503,7 +505,13 @@ p.bonus span {
   background-position: center center;
   color: transparent;
   -webkit-background-clip: text;
-  background: linear-gradient(318deg, #00897b, #8062bd, #00897b, #8062bd);
+  background: linear-gradient(
+    318deg,
+    var(--gradient1),
+    var(--gradient2),
+    var(--gradient1),
+    var(--gradient2)
+  );
   /* background-image: url('./img/background.gif'); */
   background-size: 800% 800%;
   -webkit-animation: Gradient 4s ease infinite;
@@ -512,7 +520,6 @@ p.bonus span {
   -webkit-background-clip: text;
 }
 
-/* CODEMOTION SLIDES */
 h1,
 h2,
 h3,
@@ -522,24 +529,24 @@ h5 {
 }
 
 section > header.slide {
-  background: #212121;
+  background: var(--black);
 }
 
 #sonia-ruiz {
-  background: #fafafa;
+  background: var(--white);
 }
 
 #sonia-ruiz > div {
   display: flex !important;
   align-items: flex-start;
-  color: #212121 !important;
-  background: #fafafa;
+  color: var(--black) !important;
+  background: var(--white);
   margin-left: 5rem;
 }
 
 #sonia-ruiz h2 {
   margin-bottom: 1rem;
-  color: #212121 !important;
+  color: var(--black) !important;
   position: relative;
 }
 
@@ -551,7 +558,13 @@ h2.with-bar:after {
   top: 0.45em;
   bottom: 0;
   margin-left: 0.2em;
-  background: linear-gradient(318deg, #49a09d, #5f2c82, #49a09d, #5f2c82);
+  background: linear-gradient(
+    318deg,
+    var(--gradient1),
+    var(--gradient2),
+    var(--gradient1),
+    var(--gradient2)
+  );
   /* background-image: url('./img/background.gif'); */
   background-size: 800% 800%;
   -webkit-animation: Gradient 6s ease infinite;
@@ -618,46 +631,34 @@ header.slide > div h1:before {
   top: -0.8em;
   left: -7vmin;
   bottom: 0;
-  background: linear-gradient(318deg, #49a09d, #5f2c82, #49a09d, #5f2c82);
+  background: linear-gradient(
+    318deg,
+    var(--gradient1),
+    var(--gradient2),
+    var(--gradient1),
+    var(--gradient2)
+  );
   background-size: 800% 800%;
   -webkit-animation: Gradient 6s ease infinite;
   -moz-animation: Gradient 6s ease infinite;
   animation: Gradient 6s ease infinite;
 }
 
-header.slide.back-cover {
-  background: #fafafa;
+.slide.inverse,
+.slide.inverse > div {
+  background: var(--white);
+  color: var(--black);
 }
 
-header.slide.back-cover > div {
-  background: #fafafa;
-}
-
-header.slide.back-cover h1 {
-  color: #212121;
-}
-
-.compatibility {
-  color: #212121;
-  font-family: "Raleway";
-  font-size: 8rem !important;
-  margin-bottom: -2rem;
-}
-
-.compatibility.good {
-  color: #2e7d32;
-}
-
-.compatibility.regular {
-  color: #f57c00;
-}
-
-.compatibility.bad {
-  color: #c62828;
+p.subtitle {
+  font-weight: 100;
+  text-align: center;
+  font-size: 4rem;
+  margin: 3rem 0;
 }
 
 p.bonus {
-  color: #212121;
+  color: var(--black);
   width: 100%;
   padding-left: 10rem;
   text-align: left;
@@ -700,7 +701,7 @@ p.bonus {
 }
 
 .slide.subsection {
-  background: #fafafa;
+  background: var(--white);
 }
 
 .slide.subsection h1 {
@@ -711,7 +712,7 @@ p.bonus {
   padding-left: 8rem;
   font-size: 5rem !important;
   left: 0;
-  color: #212121;
+  color: var(--black);
 }
 
 .slide.subsection h1:after {
@@ -730,7 +731,7 @@ p.bonus {
 }
 
 p.link {
-  color: #212121;
+  color: var(--black);
   width: 100%;
   text-align: left;
   padding-left: 8rem;
@@ -756,12 +757,12 @@ p.link span {
 
 .bye,
 .bye > div {
-  background: #fafafa !important;
+  background: var(--white) !important;
   align-items: flex-start !important;
 }
 
 .bye h1 {
-  color: #212121;
+  color: var(--black);
   background: none;
   font-size: 7rem !important;
   position: relative;
@@ -787,7 +788,7 @@ header.slide.bye > div h1:before {
 }
 
 header.slide.bye p {
-  color: #212121 !important;
+  color: var(--black) !important;
   padding-left: 6rem !important;
   position: absolute;
   bottom: 0rem;
@@ -807,4 +808,93 @@ header.slide.bye p:lasth-child {
 
 header.slide.bye img.logo:nth-child(2) {
   margin-left: 2.5rem;
+}
+
+.iframe .media-frame {
+  width: 90vw;
+  height: 85vh;
+}
+
+.iframe .media-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.media-frame::after {
+  font-size: 47% !important;
+  top: 0.5em !important;
+}
+
+/* ESPECIFICAS */
+
+/* Card Three.js */
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 2rem;
+}
+
+.profile img {
+  height: 8rem;
+  border-radius: 50%;
+}
+
+.profile p {
+  margin-left: 2rem;
+  font-size: 2rem;
+}
+
+/* WebGL Code */
+.webgl-code {
+  background: var(--background-image);
+  background-size: cover;
+  background-position: 0%;
+  width: 90vw !important;
+  height: 85vh;
+  animation: showCode 30s linear infinite alternate;
+  position: relative;
+}
+
+@keyframes showCode {
+  from {
+    background-position: 0% 0%;
+  }
+
+  to {
+    background-position: 0% 100%;
+  }
+}
+
+.webgl-code p {
+  color: var(--white);
+  font-size: 4rem;
+  position: absolute;
+  top: 0rem;
+  right: 2rem;
+  font-weight: 600;
+}
+
+/* Web Frames */
+.webs-frames .media-frame {
+  position: absolute;
+  right: -30vw;
+  top: calc(50vh - 30vh);
+  height: 70vh;
+  width: 80vw;
+  background: var(--background-image);
+  background-size: cover;
+  transition: 0.5s;
+}
+
+.webs-frames .delayed + .media-frame {
+  opacity: 0;
+}
+
+.webs-frames .current + .media-frame {
+  opacity: 1;
 }
