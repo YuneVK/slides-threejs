@@ -1,0 +1,108 @@
+/**
+ * Styles for the sample talk, you don’t need to copy this to use Inspire.js
+ * If you just want the theme of the sample talk, use theme.css
+ */
+
+#intro h1,
+#intro h2 {
+  margin: 0;
+  filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.5));
+}
+
+#intro h1 {
+  /* margin-top: auto; */
+  color: var(--color-aqua);
+  letter-spacing: -0.04em;
+  font-size: calc(200% + 15vh);
+  line-height: 1.05em;
+}
+
+@supports (-webkit-background-clip: text) {
+  #intro h1 {
+    /* background: linear-gradient(to bottom right, var(--color1), var(--color2), var(--color3), var(--color2), var(--color1)); */
+    color: transparent;
+    /* background: linear-gradient(270deg, #00897b, #5e35b1, #ff9800, #03a9f4); */
+    background: linear-gradient(318deg, #00897b, #8062bd, #00897b, #8062bd);
+    /* background-image: url('./img/background.gif'); */
+    background-size: 800% 800%;
+    -webkit-animation: Gradient 4s ease infinite;
+    -moz-animation: Gradient 4s ease infinite;
+    animation: Gradient 4s ease infinite;
+    -webkit-background-clip: text;
+  }
+}
+
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 0% 2%;
+  }
+  50% {
+    background-position: 100% 99%;
+  }
+  100% {
+    background-position: 0% 2%;
+  }
+}
+@-moz-keyframes Gradient {
+  0% {
+    background-position: 0% 2%;
+  }
+  50% {
+    background-position: 100% 99%;
+  }
+  100% {
+    background-position: 0% 2%;
+  }
+}
+@keyframes Gradient {
+  0% {
+    background-position: 0% 2%;
+  }
+  50% {
+    background-position: 100% 99%;
+  }
+  100% {
+    background-position: 0% 2%;
+  }
+}
+
+#intro h2 {
+  width: 10em;
+  font-size: calc(85% + 4vh);
+  color: #dedede;
+  font-weight: 300;
+  margin-top: 1rem;
+}
+
+/* #intro h2::first-line {
+		font-size: 80%;
+	} */
+
+#intro .attribution {
+  margin-top: auto;
+  font-weight: bold;
+  font-size: 80%;
+  color: var(--color-yellow);
+  text-align: center;
+}
+
+#media-plugin {
+  flex-flow: row;
+  padding: 2rem;
+}
+
+#media-plugin > div:first-child {
+  margin-right: 1em;
+}
+
+#media-plugin h1 {
+  font-size: 200%;
+}
+
+#media-plugin .annotation {
+  font-weight: 300;
+}
+
+.slide.white {
+  background: #fafafa;
+}
