@@ -6,30 +6,13 @@
 #intro h1,
 #intro h2 {
   margin: 0;
-  filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.5));
 }
 
 #intro h1 {
   /* margin-top: auto; */
-  color: var(--color-aqua);
   letter-spacing: -0.04em;
-  font-size: calc(200% + 15vh);
+  font-size: calc(200% + 10vh);
   line-height: 1.05em;
-}
-
-@supports (-webkit-background-clip: text) {
-  #intro h1 {
-    /* background: linear-gradient(to bottom right, var(--color1), var(--color2), var(--color3), var(--color2), var(--color1)); */
-    color: transparent;
-    /* background: linear-gradient(270deg, #00897b, #5e35b1, #ff9800, #03a9f4); */
-    background: linear-gradient(318deg, #00897b, #8062bd, #00897b, #8062bd);
-    /* background-image: url('./img/background.gif'); */
-    background-size: 800% 800%;
-    -webkit-animation: Gradient 4s ease infinite;
-    -moz-animation: Gradient 4s ease infinite;
-    animation: Gradient 4s ease infinite;
-    -webkit-background-clip: text;
-  }
 }
 
 @-webkit-keyframes Gradient {
@@ -67,9 +50,8 @@
 }
 
 #intro h2 {
-  width: 10em;
-  font-size: calc(85% + 4vh);
-  color: #dedede;
+  width: 12em;
+  font-size: calc(85% + 3vh);
   font-weight: 300;
   margin-top: 1rem;
 }

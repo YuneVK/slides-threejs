@@ -340,6 +340,41 @@ th:first-child {
   font-family: var(--font-heading);
 }
 
+#intro .content {
+  z-index: 9;
+  position: absolute;
+  bottom: 5rem;
+  left: 05rem;
+}
+
+#intro h1,
+#intro h2 {
+  z-index: 9;
+  width: 100vw;
+  text-align: left;
+  filter: none;
+  color: var(--black);
+}
+
+#intro .media-frame {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0;
+  padding-top: 0;
+}
+
+#intro .media-frame::before {
+  display: none;
+}
+
+#intro .media-frame iframe {
+  width: 100%;
+  height: 100%;
+}
+
 h1 {
   font-family: var(--font-heading);
 }
@@ -826,6 +861,10 @@ header.slide.bye img.logo:nth-child(2) {
   top: 0.5em !important;
 }
 
+.video.slide {
+  background: var(--white) !important;
+}
+
 /* ESPECIFICAS */
 
 /* Card Three.js */
@@ -853,10 +892,10 @@ header.slide.bye img.logo:nth-child(2) {
 .webgl-code {
   background: var(--background-image);
   background-size: cover;
-  background-position: 0%;
+  background-position: 0% 0%;
   width: 90vw !important;
   height: 85vh;
-  animation: showCode 30s linear infinite alternate;
+  animation: showCode 40s linear infinite alternate;
   position: relative;
 }
 

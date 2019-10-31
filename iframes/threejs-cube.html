@@ -35,10 +35,10 @@
       };
 
       const render = () => {
+        requestAnimationFrame(render);
         mesh.rotation.x += 0.005;
         mesh.rotation.y += 0.01;
         renderer.render(scene, camera);
-        requestAnimationFrame(render);
       };
 
       init();
