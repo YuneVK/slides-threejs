@@ -802,13 +802,7 @@ p.link span {
   font-size: 7rem !important;
   position: relative;
   width: fit-content !important;
-  padding-left: 6rem !important;
   margin-top: -6rem;
-}
-
-.bye h1 span {
-  font-size: 9rem !important;
-  display: block;
 }
 
 header.slide.bye > div h1:before {
@@ -824,10 +818,7 @@ header.slide.bye > div h1:before {
 
 header.slide.bye p {
   color: var(--black) !important;
-  padding-left: 6rem !important;
-  position: absolute;
-  bottom: 0rem;
-  right: 5rem;
+  margin-bottom: 0;
 }
 
 header.slide.bye img.logo {
@@ -858,7 +849,7 @@ header.slide.bye img.logo:nth-child(2) {
 
 .media-frame::after {
   font-size: 47% !important;
-  top: 0.5em !important;
+  top: 0.35em !important;
 }
 
 .video.slide {
@@ -936,4 +927,37 @@ header.slide.bye img.logo:nth-child(2) {
 
 .webs-frames .current + .media-frame {
   opacity: 1;
+}
+/* Contraportada */
+.bye .content {
+  z-index: 9;
+  position: absolute;
+  bottom: 2rem;
+  left: 05rem;
+}
+
+.bye .media-frame {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0;
+  padding-top: 0;
+}
+
+.bye .media-frame::before {
+  display: none;
+}
+
+.bye .media-frame iframe {
+  width: 100%;
+  height: 100%;
+}
+
+header.slide.bye p.repo {
+  color: var(--black) !important;
+  font-size: 2rem;
+  opacity: 0.5;
+  margin: 0;
 }

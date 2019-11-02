@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic Three.js App</title>
+    <style>
+      html,
+      html,
+      body {
+        margin: 0;
+        height: 100vh;
+        width: 100vw;
+      }
+      #c {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      .split {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+      }
+      .split > div {
+        width: 100%;
+        height: 100%;
+      }
+
+      *:focus {
+        outline: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="c"></canvas>
+    <div class="split">
+      <div id="view1" tabindex="1"></div>
+      <div id="view2" tabindex="2"></div>
+    </div>
+
+    <script src="libs/three.min.js"></script>
+    <script src="libs/OrbitControls.js"></script>
+    <script src="libs/dat.gui.min.js"></script>
+    <script>
+      function main() {
+        const canvas = document.querySelector("#c");
+        const view1Elem = document.querySelector("#view1");
+        const view2Elem = document.querySelector("#view2");
+        const renderer = new THREE.WebGLRenderer({ canvas });
+
+        const fov = 45;
+        const aspect = 2; // the canvas default
+        const near = 5;
+        const far = 100;
+        const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+        camera.position.set(0, 10, 20);
+
+        const cameraHelper = new THREE.CameraHelper(camera);
+
+        class MinMaxGUIHelper {
+          constructor(obj, minProp, maxProp, minDif) {
+            this.obj = obj;
+            this.minProp = minProp;
+            this.maxProp = maxProp;
+            this.minDif = minDif;
+          }
+          get min() {
+            return this.obj[this.minProp];
+          }
+          set min(v) {
+            this.obj[this.minProp] = v;
+            this.obj[this.maxProp] = Math.max(
+              this.obj[this.maxProp],
+              v + this.minDif
+            );
+          }
+          get max() {
+            return this.obj[this.maxProp];
+          }
+          set max(v) {
+            this.obj[this.maxProp] = v;
+            this.min = this.min; // this will call the min setter
+          }
+        }
+
+        const gui = new dat.GUI();
+        gui.add(camera, "fov", 1, 180);
+        const minMaxGUIHelper = new MinMaxGUIHelper(camera, "near", "far", 0.1);
+        gui.add(minMaxGUIHelper, "min", 0.1, 50, 0.1).name("near");
+        gui.add(minMaxGUIHelper, "max", 0.1, 100, 0.1).name("far");
+
+        const controls = new THREE.OrbitControls(camera, view1Elem);
+        controls.target.set(0, 5, 0);
+        controls.update();
+
+        const camera2 = new THREE.PerspectiveCamera(
+          60, // fov
+          2, // aspect
+          0.1, // near
+          500 // far
+        );
+        camera2.position.set(40, 10, 30);
+        camera2.lookAt(0, 5, 0);
+
+        const controls2 = new THREE.OrbitControls(camera2, view2Elem);
+        controls2.target.set(0, 5, 0);
+        controls2.update();
+
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color("#fafafa");
+        scene.add(cameraHelper);
+
+        {
+          const grid = new THREE.GridHelper(3000, 300, 0x555555, 0xbbbbbb);
+          grid.material.transparent = true;
+          // grid.position.y = -200;
+          scene.add(grid);
+
+          //   const planeSize = 40;
+
+          //   const planeGeo = new THREE.PlaneBufferGeometry(planeSize, planeSize);
+          //   var planeMat = new THREE.MeshBasicMaterial({
+          //     color: 0xff0000,
+          //     transparent: true,
+          //     opacity: 0.3,
+          //     side: THREE.DoubleSide
+          //   });
+          //   const mesh = new THREE.Mesh(planeGeo, planeMat);
+          //   mesh.rotation.x = Math.PI * -0.5;
+          //   scene.add(mesh);
+        }
+        {
+          const cubeSize = 4;
+          const cubeGeo = new THREE.BoxBufferGeometry(
+            cubeSize,
+            cubeSize,
+            cubeSize
+          );
+          const cubeMat = new THREE.MeshPhongMaterial({ color: "#49a09d" });
+          const mesh = new THREE.Mesh(cubeGeo, cubeMat);
+          mesh.position.set(cubeSize + 1, cubeSize / 2, 0);
+          scene.add(mesh);
+        }
+        {
+          const sphereRadius = 3;
+          const sphereWidthDivisions = 32;
+          const sphereHeightDivisions = 16;
+          const sphereGeo = new THREE.SphereBufferGeometry(
+            sphereRadius,
+            sphereWidthDivisions,
+            sphereHeightDivisions
+          );
+          const sphereMat = new THREE.MeshPhongMaterial({ color: "#8062bd" });
+          const mesh = new THREE.Mesh(sphereGeo, sphereMat);
+          mesh.position.set(-sphereRadius - 1, sphereRadius + 2, 0);
+          scene.add(mesh);
+        }
+
+        {
+          const color = 0xffffff;
+          const intensity = 0.5;
+          const light = new THREE.DirectionalLight(color, intensity);
+          light.position.set(0, 10, 0);
+          light.target.position.set(-5, 0, 0);
+          scene.add(light);
+          scene.add(light.target);
+
+          const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+          scene.add(ambientLight);
+        }
+
+        function resizeRendererToDisplaySize(renderer) {
+          const canvas = renderer.domElement;
+          const width = canvas.clientWidth;
+          const height = canvas.clientHeight;
+          const needResize = canvas.width !== width || canvas.height !== height;
+          if (needResize) {
+            renderer.setSize(width, height, false);
+          }
+          return needResize;
+        }
+
+        function setScissorForElement(elem) {
+          const canvasRect = canvas.getBoundingClientRect();
+          const elemRect = elem.getBoundingClientRect();
+
+          // compute a canvas relative rectangle
+          const right =
+            Math.min(elemRect.right, canvasRect.right) - canvasRect.left;
+          const left = Math.max(0, elemRect.left - canvasRect.left);
+          const bottom =
+            Math.min(elemRect.bottom, canvasRect.bottom) - canvasRect.top;
+          const top = Math.max(0, elemRect.top - canvasRect.top);
+
+          const width = Math.min(canvasRect.width, right - left);
+          const height = Math.min(canvasRect.height, bottom - top);
+
+          // setup the scissor to only render to that part of the canvas
+          const positiveYUpBottom = canvasRect.height - bottom;
+          renderer.setScissor(left, positiveYUpBottom, width, height);
+          renderer.setViewport(left, positiveYUpBottom, width, height);
+
+          // return the aspect
+          return width / height;
+        }
+
+        function render() {
+          resizeRendererToDisplaySize(renderer);
+
+          // turn on the scissor
+          renderer.setScissorTest(true);
+
+          // render the original view
+          {
+            const aspect = setScissorForElement(view1Elem);
+
+            // adjust the camera for this aspect
+            camera.aspect = aspect;
+            camera.updateProjectionMatrix();
+            cameraHelper.update();
+
+            // don't draw the camera helper in the original view
+            cameraHelper.visible = false;
+
+            scene.background.set(0xfafafa);
+
+            // render
+            renderer.render(scene, camera);
+          }
+
+          // render from the 2nd camera
+          {
+            const aspect = setScissorForElement(view2Elem);
+
+            // adjust the camera for this aspect
+            camera2.aspect = aspect;
+            camera2.updateProjectionMatrix();
+
+            // draw the camera helper in the 2nd view
+            cameraHelper.visible = true;
+
+            scene.background.set(0xfafafa);
+
+            renderer.render(scene, camera2);
+          }
+
+          requestAnimationFrame(render);
+        }
+
+        requestAnimationFrame(render);
+      }
+
+      main();
+    </script>
+  </body>
+</html>

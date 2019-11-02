@@ -70,7 +70,7 @@
 
       <article
         class="slide looping"
-        data-video="./video/rome.mov"
+        data-video="./video/rome.mp4"
         style="--url: 'http://www.ro.me/'"
       >
         <div></div>
@@ -78,7 +78,7 @@
 
       <article
         class="slide looping"
-        data-video="./video/quake.mov"
+        data-video="./video/quake.mp4"
         style="--url: 'https://media.tojicode.com/q3bsp/'"
       >
         <div></div>
@@ -194,21 +194,39 @@
         <div><h1>Fundamentos 3D</h1></div>
       </header>
 
-      <article class="slide">
+      <article class="slide inverse">
         <div>
-          <p>esquema escenario 3D</p>
+          <img
+            src="img/escenario-3d.svg"
+            alt="Esquema escenario 3D"
+            style="height: 70vh"
+          />
         </div>
       </article>
 
-      <article class="slide">
-        <div>
-          <p>esquema objeto</p>
+      <article class="slide inverse">
+        <div style="text-align: center;">
+          <img
+            src="img/object-esquema.svg"
+            alt="Esquema escenario 3D"
+            style="height: 40vh"
+          />
+          <img
+            src="img/many-calavera.png"
+            alt="Ejemplo modelo 3D"
+            style="height: 40vh"
+            class="delayed"
+          />
         </div>
       </article>
 
-      <article class="slide">
+      <article class="slide inverse">
         <div>
-          <p>esquema escenario 3D</p>
+          <img
+            src="img/escenario-3d.svg"
+            alt="Esquema escenario 3D"
+            style="height: 70vh"
+          />
         </div>
       </article>
     </section>
@@ -228,7 +246,7 @@
 
       <article class="slide inverse">
         <div>
-          <div class="media-frame" style="width: 50vw">
+          <div class="media-frame">
             <img
               src="img/cube-html.svg"
               alt="Código Three.js"
@@ -314,9 +332,13 @@
         </div>
       </article>
 
-      <article class="slide">
+      <article class="slide inverse">
         <div>
-          <p>esquema escenario 3D</p>
+          <img
+            src="img/escenario-3d.svg"
+            alt="Esquema escenario 3D"
+            style="height: 70vh"
+          />
         </div>
       </article>
     </section>
@@ -332,15 +354,27 @@
         </div>
       </header>
 
-      <article class="slide">
+      <article class="slide inverse">
         <div>
-          <p>code del constructor, background y fog</p>
+          <div class="media-frame" style="width: 50vw">
+            <img
+              src="img/scene.svg"
+              alt="Código Three.js"
+              style="width: 100%; margin-top: -.5rem;"
+            />
+          </div>
         </div>
       </article>
 
-      <article class="slide">
-        <div>
-          <p>iframe de ejemplo con controls</p>
+      <article
+        class="slide iframe dont-resize onscreen-nav mv-target-within"
+        style="--url: 'scene.html'"
+      >
+        <div class="media-frame">
+          <iframe
+            data-src="iframes/scene.html"
+            src="iframes/scene.html"
+          ></iframe>
         </div>
       </article>
     </section>
@@ -352,40 +386,96 @@
         </div>
       </header>
 
-      <article class="slide">
+      <article class="slide subsection">
+        <h1>Tipos de cámara</h1>
+        <p class="link delayed">
+          <a href="#">👉 CubeCamera</a>
+        </p>
+        </div>
+        <p class="link delayed">
+          <a href="#">👉 OrtographicCamera</a>
+        </p>
+        <p class="link delayed">
+          <a href="#">👉 PerspectiveCamera</a>
+        </p>
+        <p class="link delayed">
+          <a href="#">👉 StereoCamera</a>
+        </p>
+      </article>
+
+      <article class="slide subsection">
+        <h1>Tipos de cámara</h1>
+        <p class="link">
+          <a href="#" style="opacity: .2">👉 CubeCamera</a>
+        </p>
+        </div>
+        <p class="link">
+          <a href="#" style="opacity: .2">👉 OrtographicCamera</a>
+        </p>
+        <p class="link">
+          <a href="#">👉 PerspectiveCamera</a>
+        </p>
+        <p class="link">
+          <a href="#" style="opacity: .2">👉 StereoCamera</a>
+        </p>
+      </article>
+
+      <article class="slide inverse">
         <div>
-          <p>listado tipos de cámara</p>
+          <div class="media-frame" style="width: 80vw">
+            <img
+              src="img/camera.svg"
+              alt="Código Three.js"
+              style="width: 100%; margin-top: -.5rem;"
+            />
+          </div>
         </div>
       </article>
 
-      <article class="slide">
+      <article class="slide inverse">
         <div>
-          <p>code constructor cámara</p>
+            <img
+              src="img/camera-graph.svg"
+              alt="Código Three.js"
+              style="width: 100%; margin-top: -.5rem;"
+            />
         </div>
       </article>
 
-      <article class="slide">
-        <div>
-          <p>esquema cámara y sus params</p>
-        </div>
-      </article>
-
-      <article class="slide">
-        <div>
-          <p>iframe cámara con controls</p>
+      <article
+        class="slide iframe dont-resize onscreen-nav mv-target-within"
+        style="--url: 'camera.html'"
+      >
+        <div class="media-frame">
+          <iframe
+            data-src="iframes/camera.html"
+            src="iframes/camera.html"
+          ></iframe>
         </div>
       </article>
 
       <article class="slide subsection">
         <div>
           <h1>Controls</h1>
-          <p style="color: #212121">code controls</p>
+          <div class="media-frame delayed" style="width: 60vw; margin-top: 5rem;">
+              <img
+                src="img/controls.svg"
+                alt="Código Three.js"
+                style="width: 100%; margin-top: -.5rem;"
+              />
+            </div>
         </div>
       </article>
 
-      <article class="slide">
-        <div>
-          <p>iframe ejemplo controls</p>
+      <article
+        class="slide iframe dont-resize onscreen-nav mv-target-within"
+        style="--url: 'https://threejs.org/examples/misc_controls_trackball.html'"
+      >
+        <div class="media-frame">
+          <iframe
+            data-src="https://threejs.org/examples/misc_controls_trackball.html"
+            src="https://threejs.org/examples/misc_controls_trackball.html"
+          ></iframe>
         </div>
       </article>
     </section>
@@ -397,17 +487,29 @@
         </div>
       </header>
 
-      <article class="slide">
+      <article class="slide inverse">
         <div>
-          <p>code constructor</p>
+          <div class="media-frame" style="width: 80vw">
+            <img
+              src="img/renderer-init.svg"
+              alt="Código Three.js"
+              style="width: 100%; margin-top: -.5rem;"
+            />
+          </div>
         </div>
       </article>
 
-      <article class="slide">
-        <div>
-          <p>code render</p>
-        </div>
-      </article>
+        <article class="slide inverse">
+          <div>
+            <div class="media-frame" style="width: 80vw">
+              <img
+                src="img/renderer-render.svg"
+                alt="Código Three.js"
+                style="width: 100%; margin-top: -.5rem;"
+              />
+            </div>
+          </div>
+        </article>
     </section>
 
     <section>
@@ -417,33 +519,148 @@
         </div>
       </header>
 
-      <article class="slide">
-        <div>
-          <p>code creación objeto</p>
+      <article class="slide inverse">
+          <div style="text-align: center;">
+            <img
+              src="img/object-esquema.svg"
+              alt="Esquema escenario 3D"
+              style="height: 45vh"
+            />
+            <img
+              src="img/many-calavera.png"
+              alt="Ejemplo modelo 3D"
+              style="height: 45vh"
+              class="delayed"
+            />
+          </div>
+        </article>
+
+        <article class="slide inverse">
+          <div>
+            <div class="media-frame" style="width: 80vw">
+              <img
+                src="img/objeto-gaometria.svg"
+                alt="Código Three.js"
+                style="width: 100%; margin-top: -.5rem;"
+              />
+            </div>
+          </div>
+        </article>
+
+        <article
+        class="slide iframe dont-resize onscreen-nav mv-target-within"
+        style="--url: 'materials.html'"
+      >
+        <div class="media-frame" style="width: 80vw">
+          <iframe
+            data-src="iframes/geometries.html"
+            src="iframes/geometries.html"
+          ></iframe>
         </div>
       </article>
 
-      <article class="slide">
+      <article
+      class="slide iframe dont-resize onscreen-nav mv-target-within"
+      style="--url: 'https://threejs.org/docs/scenes/geometry-browser.html#TorusKnotBufferGeometry'"
+    >
+      <div class="media-frame">
+        <iframe
+          data-src="https://threejs.org/docs/scenes/geometry-browser.html#TorusKnotBufferGeometry"
+          src="https://threejs.org/docs/scenes/geometry-browser.html#TorusKnotBufferGeometry"
+        ></iframe>
+      </div>
+    </article>
+
+      <article class="slide inverse">
         <div>
-          <p>iframe ejemplo geometrías</p>
+          <div class="media-frame" style="width: 80vw">
+            <img
+              src="img/objeto-material.svg"
+              alt="Código Three.js"
+              style="width: 100%; margin-top: -.5rem;"
+            />
+          </div>
         </div>
       </article>
 
-      <article class="slide">
-        <div>
-          <p>iframe ejemplo materiales</p>
+      <article
+        class="slide iframe dont-resize onscreen-nav mv-target-within"
+        style="--url: 'materials.html'"
+      >
+        <div class="media-frame" style="width: 70vw">
+          <iframe
+            data-src="iframes/materials.html"
+            src="iframes/materials.html"
+          ></iframe>
         </div>
       </article>
 
-      <article class="slide">
+      <article class="slide subsection">
         <div>
-          <p>code importar objetos</p>
+          <h1>Configurar material</h1>
+          <div class="media-frame delayed" style="width: 80vw; margin-top: 5rem">
+              <img
+                src="img/material-config.svg"
+                alt="Código Three.js"
+                style="width: 100%; margin-top: -.5rem;"
+              />
+            </div>
         </div>
       </article>
 
-      <article class="slide">
-        <div>
-          <p>iframe objeto importado</p>
+      <article
+        class="slide iframe dont-resize onscreen-nav mv-target-within"
+        style="--url: 'https://threejs.org/docs/scenes/material-browser.html#MeshPhongMaterial'"
+      >
+        <div class="media-frame">
+          <iframe
+            data-src="https://threejs.org/docs/scenes/material-browser.html#MeshPhongMaterial"
+            src="https://threejs.org/docs/scenes/material-browser.html#MeshPhongMaterial"
+          ></iframe>
+        </div>
+      </article>
+
+      <article
+        class="slide iframe dont-resize onscreen-nav mv-target-within"
+        style="--url: 'https://threejs.org/examples/webgl_materials_envmaps_exr.html'"
+      >
+        <div class="media-frame">
+          <iframe
+            data-src="https://threejs.org/examples/webgl_materials_envmaps_exr.html"
+            src="https://threejs.org/examples/webgl_materials_envmaps_exr.html"
+          ></iframe>
+        </div>
+      </article>
+
+
+
+      <header class="slide inverse">
+          <div>
+            <h1>Cargar modelos</h1>
+          </div>
+        </header>
+
+        <article class="slide inverse">
+            <div>
+              <div class="media-frame" style="width: 80vw">
+                <img
+                  src="img/loader.svg"
+                  alt="Código Three.js"
+                  style="width: 100%; margin-top: -.5rem;"
+                />
+              </div>
+            </div>
+          </article>
+
+      <article
+        class="slide iframe dont-resize onscreen-nav mv-target-within"
+        style="--url: 'link.html'"
+      >
+        <div class="media-frame" style="width: 80vw">
+          <iframe
+            data-src="iframes/link.html"
+            src="iframes/link.html"
+          ></iframe>
         </div>
       </article>
     </section>
@@ -458,46 +675,78 @@
       <article class="slide subsection">
         <div>
           <h1>Hemisphere light</h1>
-          <p style="color: #212121">ejemplo código</p>
+          <div class="media-frame delayed" style="width: 80vw">
+              <img
+                src="img/hemisphere.svg"
+                alt="Código Three.js"
+                style="width: 100%; margin-top: -.5rem;"
+              />
+            </div>
         </div>
       </article>
 
-      <article class="slide">
-        <div><p>iframe ejemplo propio</p></div>
-      </article>
-
-      <article class="slide">
-        <div><p>iframe ejemplo docu</p></div>
+      <article
+        class="slide iframe dont-resize onscreen-nav mv-target-within"
+        style="--url: 'https://threejs.org/examples/webgl_shaders_ocean.html'"
+      >
+        <div class="media-frame">
+          <iframe
+            data-src="https://threejs.org/examples/webgl_shaders_ocean.html"
+            src="https://threejs.org/examples/webgl_shaders_ocean.html"
+          ></iframe>
+        </div>
       </article>
 
       <article class="slide subsection">
         <div>
           <h1>Point light</h1>
-          <p style="color: #212121">ejemplo código</p>
+          <div class="media-frame delayed" style="width: 80vw">
+              <img
+                src="img/point.svg"
+                alt="Código Three.js"
+                style="width: 100%; margin-top: -.5rem;"
+              />
+            </div>
+        </div>
         </div>
       </article>
 
-      <article class="slide">
-        <div><p>iframe ejemplo propio</p></div>
-      </article>
-
-      <article class="slide">
-        <div><p>iframe ejemplo docu</p></div>
+      <article
+        class="slide iframe dont-resize onscreen-nav mv-target-within"
+        style="--url: 'https://threejs.org/examples/webgldeferred_animation.html'"
+      >
+        <div class="media-frame">
+          <iframe
+            data-src="https://threejs.org/examples/webgldeferred_animation.html"
+            src="https://threejs.org/examples/webgldeferred_animation.html"
+          ></iframe>
+        </div>
       </article>
 
       <article class="slide subsection">
         <div>
           <h1>Directional light</h1>
-          <p style="color: #212121">ejemplo código</p>
+          <div class="media-frame delayed" style="width: 80vw">
+              <img
+                src="img/directional.svg"
+                alt="Código Three.js"
+                style="width: 100%; margin-top: -.5rem;"
+              />
+            </div>
+        </div>
         </div>
       </article>
 
-      <article class="slide">
-        <div><p>iframe ejemplo propio</p></div>
-      </article>
-
-      <article class="slide">
-        <div><p>iframe ejemplo docu</p></div>
+      <article
+        class="slide iframe dont-resize onscreen-nav mv-target-within"
+        style="--url: 'https://threejs.org/examples/webgl_materials_bumpmap.html'"
+      >
+        <div class="media-frame">
+          <iframe
+            data-src="https://threejs.org/examples/webgl_materials_bumpmap.html"
+            src="https://threejs.org/examples/webgl_materials_bumpmap.html"
+          ></iframe>
+        </div>
       </article>
     </section>
 
@@ -508,31 +757,45 @@
         </div>
       </header>
 
-      <article class="slide">
+      <article class="slide inverse">
         <div>
-          <p>code</p>
+          <div class="media-frame" style="width: 50vw">
+            <img
+              src="img/raycast.svg"
+              alt="Código Three.js"
+              style="width: 100%; margin-top: -.5rem;"
+            />
+          </div>
         </div>
       </article>
 
-      <article class="slide">
-        <div>
-          <p>iframe</p>
+      <article
+        class="slide iframe dont-resize onscreen-nav mv-target-within"
+        style="--url: 'https://threejs.org/examples/webgl_interactive_cubes'"
+      >
+        <div class="media-frame">
+          <iframe
+            data-src="https://threejs.org/examples/webgl_interactive_cubes"
+            src="https://threejs.org/examples/webgl_interactive_cubes"
+          ></iframe>
         </div>
       </article>
     </section>
 
     <section>
-      <article class="slide">
-        <div>
-          <p>vídeo recopilatorio proyectos</p>
-        </div>
+        <article
+        class="slide looping"
+        data-video="./video/proyectos.mp4"
+        style="--url: 'https://threejs.org/'"
+      >
+        <div></div>
       </article>
     </section>
 
     <section>
       <header class="slide">
         <div>
-          <h1>Antes de terminar</h1>
+          <h1>¡Aún hay más!</h1>
         </div>
       </header>
     </section>
@@ -540,27 +803,59 @@
     <section>
       <header class="slide">
         <div>
-          <h1>shaders</h1>
+          <h1>Shaders</h1>
         </div>
       </header>
 
-      <article class="slide">
-        <div>
-          <p>vídeo 1 - director japo</p>
-        </div>
+      <article
+        class="slide looping"
+        data-video="./video/taotajima.mp4"
+        style="--url: 'http://taotajima.jp/'"
+      >
+        <div></div>
       </article>
 
-      <article class="slide">
-        <div>
-          <p>vídeo 2 - ejemplo codrops</p>
-        </div>
+      <article
+        class="slide looping"
+        data-video="./video/codrops.mp4"
+        style="--url: 'https://tympanus.net/Tutorials/GooeyImageHoverEffects/'"
+      >
+        <div></div>
       </article>
 
-      <article class="slide">
-        <div>
-          <p>Recursos</p>
-        </div>
-      </article>
+      <article class="slide subsection webs-frames">
+          <h1>Más info</h1>
+          <p class="link delayed">
+            <a href="https://thebookofshaders.com/">👉 The Book of Shaders</a
+            ><span>https://thebookofshaders.com/</span>
+          </p>
+          <div
+            class="media-frame"
+            style="--background-image: url('img/book-shaders.png'); --url: 'https://thebookofshaders.com/'"
+          >
+            <p></p>
+          </div>
+          <p class="link delayed">
+            <a href="https://tympanus.net/Tutorials/GooeyImageHoverEffects/">👉 Tutorial Codrops</a>
+            <span>https://tympanus.net/Tutorials/<br>GooeyImageHoverEffects/</span>
+          </p>
+          <div
+            class="media-frame"
+            style="--background-image: url('img/codrops.png'); --url: 'https://tympanus.net/Tutorials/GooeyImageHoverEffects/'"
+          >
+            <p></p>
+          </div>
+          <p class="link delayed">
+            <a href="http://taotajima.jp/">👉 Web de Tao Tajima</a
+            ><span>http://taotajima.jp/</span>
+          </p>
+          <div
+            class="media-frame"
+            style="--background-image: url('img/tao.png'); --url: 'http://taotajima.jp/'"
+          >
+            <p></p>
+          </div>
+        </article>
     </section>
 
     <section>
@@ -570,35 +865,125 @@
         </div>
       </header>
 
-      <article class="slide">
-        <div>
-          <p>vídeo 1 - vr</p>
-        </div>
+      <article
+        class="slide looping"
+        data-video="./video/vr.mp4"
+        style="--url: 'https://www.youtube.com/watch?v=1t1gBVykneA'"
+      >
+        <div></div>
       </article>
 
-      <article class="slide">
-        <div>
-          <p>vídeo 2 - ar</p>
-        </div>
+      <article
+        class="slide looping"
+        data-video="./video/ar.mp4"
+        style="--url: 'https://www.youtube.com/watch?v=1t1gBVykneA'"
+      >
+        <div></div>
       </article>
 
-      <article class="slide">
-        <div>
-          <p>Recursos</p>
+      <article class="slide subsection webs-frames">
+        <h1>Más info</h1>
+        <p class="link delayed">
+          <a style="margin-top: 5rem !important; line-height: 1em;" href="https://www.youtube.com/watch?v=1t1gBVykneA" style="line-height: 1em;">👉 The future of the web is<br>immersive (Google I/O '18)</a
+          ><span style="margin-top: 0">https://www.youtube.com/<br>watch?v=1t1gBVykneA</span>
+        </p>
+        <div
+          class="media-frame"
+          style="--background-image: url('img/googleio.png'); --url: 'https://www.youtube.com/watch?v=1t1gBVykneA'"
+        >
+          <p></p>
+        </div>
+        <p class="link delayed">
+          <a style="margin-top: .7rem !important" href="https://aframe.io/">👉 A-Frame</a
+          ><span style="margin-top: 0">https://aframe.io/</span>
+        </p>
+        <div
+          class="media-frame"
+          style="--background-image: url('img/afrme.png'); --url: 'https://aframe.io/'"
+        >
+          <p></p>
+        </div>
+        <p class="link delayed">
+          <a style="margin-top: .7rem !important" href="https://stemkoski.github.io/AR-Examples/">👉 Ejemplos AR con AR.js</a
+            ><span style="margin-top: 0">https://stemkoski.github.io/AR-Examples/</span>
+        </p>
+        <div
+          class="media-frame"
+          style="--background-image: url('img/arexamples.png'); --url: 'https://stemkoski.github.io/AR-Examples/'"
+        >
+          <p></p>
+        </div>
+        <p class="link delayed">
+          <a style="margin-top: .7rem !important" href="https://codelabs.developers.google.com/codelabs/ar-with-webxr/#0">👉 Tutorial XR - Codelabs</a>
+          <span style="margin-top: 0">https://codelabs.developers.google.com/<br>codelabs/ar-with-webxr/#0</span>
+        </p>
+        <div
+          class="media-frame"
+          style="--background-image: url('img/ar.png'); --url: 'https://codelabs.developers.google.com/codelabs/ar-with-webxr/#0'"
+        >
+          <p></p>
         </div>
       </article>
     </section>
 
     <section>
-      <header class="slide bye">
-        <div>
-          <h1 class="thank"><span>👋</span>¡Muchas gracias!</h1>
-
-          <p>
-            <img src="img/twitter.png" class="logo" />@Yune__vk
-            <img src="img/github.svg" class="logo" />YuneVK
+        <article class="slide subsection webs-frames">
+          <h1>Credits</h1>
+          <!-- Web de modelos, ejemplos de threejs, inspirejs -->
+          <p class="link delayed">
+            <a href="https://sketchfab.com/">👉 Sketchfab</a
+            ><span>https://sketchfab.com/</span>
           </p>
-        </div>
+          <div
+            class="media-frame"
+            style="--background-image: url('img/sketchfab.png'); --url: 'https://sketchfab.com/'"
+          >
+            <p></p>
+          </div>
+          <p class="link delayed">
+            <a href="https://threejs.org/">👉 Three.js</a
+              ><span>https://threejs.org/</span>
+            </p>
+          <div
+            class="media-frame"
+            style="--background-image: url('img/web-threejs.png'); --url: 'https://threejs.org/'"
+          >
+            <p></p>
+          </div>
+          <p class="link delayed">
+            <a href="https://inspirejs.org/">👉 Inspire.js</a>
+            <span>https://inspirejs.org/</span>
+          </p>
+          <div
+            class="media-frame"
+            style="--background-image: url('img/inspirejs.png'); --url: 'https://inspirejs.org/'"
+          >
+            <p></p>
+          </div>
+        </article>
+    </section>
+
+    <section>
+      <header class="slide bye">
+        <section class="content">
+          <div>
+            <h1 class="thank">¡Muchas gracias!</h1>
+            <p class="repo">https://github.com/YuneVK/slides-threejs</p>
+            <p>
+              <img src="img/twitter.png" class="logo" />@Yune__vk
+              <img src="img/github.svg" class="logo" />YuneVK
+            </p>
+
+            
+          </div>
+        </section>
+
+        <div class="media-frame">
+            <iframe
+              data-src="iframes/astronaut-bye.html"
+              src="iframes/astronaut-bye.html"
+            ></iframe>
+          </div>
       </header>
     </section>
 

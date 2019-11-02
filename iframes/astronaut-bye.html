@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>three.js webgl - glTF loader</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <style>
+      body {
+        margin: 0;
+        background: #fafafa;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script src="libs/three.min.js"></script>
+    <script src="libs/GLTFLoader.js"></script>
+    <script src="libs/DRACOLoader.js"></script>
+    <script src="libs/OrbitControls.js"></script>
+
+    <script type="module">
+      let camera, scene, renderer, geometry, material, mesh, controls;
+      var gltfStore = {};
+      var mixer;
+      var clock = new THREE.Clock();
+      const init = () => {
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xf0f0f0);
+        // scene.fog = new THREE.Fog(0x000000, 100, 100);
+
+        camera = new THREE.PerspectiveCamera(
+          50,
+          window.innerWidth / window.innerHeight,
+          1,
+          10000
+        );
+        camera.position.z = 500;
+        scene.add(camera);
+        clock = new THREE.Clock();
+
+        // var light2 = new THREE.AmbientLight(0x20202a, 20, 100);
+        // light2.position.set(30, -10, 30);
+        // scene.add(light2);
+
+        const hemiLight = new THREE.HemisphereLight();
+        scene.add(hemiLight);
+
+        const light1 = new THREE.AmbientLight(0xffffff, 1);
+        light1.name = "ambient_light";
+        scene.add(light1);
+
+        const light2 = new THREE.DirectionalLight(0xffffff, 2 * Math.PI);
+        light2.position.set(0.5, 0, 0.866); // ~60º
+        light2.name = "main_light";
+        scene.add(light2);
+
+        var loader = new THREE.GLTFLoader();
+        loader.crossOrigin = true;
+        loader.load("models/astronaut/source/scene.gltf", function(data) {
+          var object = data.scene;
+          object.position.set(160, -250, 150);
+          object.scale.set(150, 150, 150);
+          object.rotation.set(0, -0.3, 0);
+
+          mixer = new THREE.AnimationMixer(data.scene);
+
+          mixer.clipAction(data.animations[2]).play();
+
+          scene.add(object);
+        });
+
+        window.scene = scene;
+
+        renderer = new THREE.WebGLRenderer();
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.gammaOutput = true;
+
+        renderer.physicallyCorrectLights = true;
+        renderer.gammaFactor = 2.2;
+        renderer.setClearColor(0x000000);
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        controls = new THREE.OrbitControls(camera, renderer.domElement);
+        document.body.appendChild(renderer.domElement);
+      };
+
+      const render = () => {
+        requestAnimationFrame(render);
+        var delta = clock.getDelta();
+
+        if (mixer) {
+          mixer.update(delta);
+        }
+        controls.update();
+        renderer.render(scene, camera);
+      };
+
+      init();
+      render();
+    </script>
+  </body>
+</html>

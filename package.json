@@ -1,0 +1,25 @@
+{
+  "name": "slides-threejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "inspire.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YuneVK/slides-threejs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YuneVK/slides-threejs/issues"
+  },
+  "homepage": "https://github.com/YuneVK/slides-threejs#readme",
+  "dependencies": {
+    "dat.gui": "^0.7.6",
+    "three": "^0.110.0",
+    "three-vignette-background": "^1.0.3"
+  }
+}

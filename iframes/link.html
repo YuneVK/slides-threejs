@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic Three.js App</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="libs/three.min.js"></script>
+    <script src="libs/inflate.min.js"></script>
+    <script src="libs/OrbitControls.js"></script>
+    <script src="libs/FBXLoader.js"></script>
+    <script src="libs/GLTFLoader.js"></script>
+    <script src="libs/DRACOLoader.js"></script>
+    <script src="libs/dat.gui.min.js"></script>
+    <script>
+      var container, stats, controls;
+      var camera, scene, renderer, light;
+      var clock = new THREE.Clock();
+      var mixer;
+      init();
+      animate();
+      function init() {
+        container = document.createElement("div");
+        document.body.appendChild(container);
+        camera = new THREE.PerspectiveCamera(
+          45,
+          window.innerWidth / window.innerHeight,
+          1,
+          2000
+        );
+        camera.position.set(100, 200, 300);
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xafd7ff);
+        scene.fog = new THREE.Fog(0xafd7ff, 200, 1000);
+        light = new THREE.HemisphereLight(0xffffff, 0xffffff);
+        light.position.set(0, 200, 0);
+        scene.add(light);
+        light = new THREE.DirectionalLight(0xffffff);
+        light.position.set(0, 200, 100);
+        light.castShadow = true;
+        light.shadow.camera.top = 180;
+        light.shadow.camera.bottom = -100;
+        light.shadow.camera.left = -120;
+        light.shadow.camera.right = 120;
+        scene.add(light);
+
+        // ground
+        var mesh = new THREE.Mesh(
+          new THREE.PlaneBufferGeometry(2000, 2000),
+          new THREE.MeshBasicMaterial({ color: 0xafd7ff, depthWrite: false })
+        );
+        mesh.rotation.x = -Math.PI / 2;
+        mesh.receiveShadow = true;
+        scene.add(mesh);
+
+        var loader = new THREE.GLTFLoader();
+        loader.crossOrigin = true;
+        loader.load("models/link/scene.gltf", function(data) {
+          var object = data.scene;
+          object.scale.set(4, 4, 4);
+          object.castShadow = true;
+          object.receiveShadow = true;
+          object.position.x = -30;
+          object.position.y = 50;
+          object.position.z = -50;
+          object.rotation.x = -0.12;
+          object.rotation.y = 0.26;
+
+          scene.add(object);
+        });
+
+        renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        container.appendChild(renderer.domElement);
+        controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.target.set(0, 100, 0);
+        controls.update();
+        window.addEventListener("resize", onWindowResize, false);
+      }
+      function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      }
+
+      function animate() {
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+      }
+    </script>
+  </body>
+</html>

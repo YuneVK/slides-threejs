@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic Three.js App</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Open+Sans:100,300,600|Raleway:800");
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: "Open Sans", sans-serif;
+        color: #fafafa;
+      }
+
+      div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+      }
+
+      div p {
+        position: absolute;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      div p:nth-child(1) {
+        top: 24vh;
+        left: calc(50vw - 27.5em);
+      }
+      div p:nth-child(2) {
+        top: 24vh;
+        left: calc(50vw - 14em);
+      }
+      div p:nth-child(3) {
+        top: 24vh;
+        left: calc(50vw - -1em);
+      }
+      div p:nth-child(4) {
+        top: 24vh;
+        left: calc(50vw - -15.5em);
+      }
+      div p:nth-child(5) {
+        top: 57vh;
+        left: calc(50vw - 27em);
+      }
+      div p:nth-child(6) {
+        top: 57vh;
+        left: calc(50vw - 12em);
+      }
+      div p:nth-child(7) {
+        top: 57vh;
+        left: calc(50vw - -2.5em);
+      }
+      div p:nth-child(8) {
+        top: 57vh;
+        left: calc(50vw - -17.5em);
+      }
+      div p:nth-child(9) {
+        top: 90.5vh;
+        left: calc(50vw - 27.5em);
+      }
+      div p:nth-child(10) {
+        top: 90.5vh;
+        left: calc(50vw - 12.5em);
+      }
+      div p:nth-child(11) {
+        top: 90.5vh;
+        left: calc(50vw - -3em);
+      }
+      div p:nth-child(12) {
+        top: 90.5vh;
+        left: calc(50vw - -16.5em);
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p>SphereBufferGeometry</p>
+      <p>IcosahedronBufferGeometry</p>
+      <p>OctahedronBufferGeometry</p>
+      <p>TetrahedronBufferGeometry</p>
+      <p>PlaneBufferGeometry</p>
+      <p>BoxBufferGeometry</p>
+      <p>CircleBufferGeometry</p>
+      <p>RingBufferGeometry</p>
+      <p>CylinderBufferGeometry</p>
+      <p>LatheBufferGeometry</p>
+      <p>TorusBufferGeometry</p>
+      <p>TorusKnotBufferGeometry</p>
+    </div>
+    <script src="libs/three.min.js"></script>
+    <script src="libs/OrbitControls.js"></script>
+
+    <script>
+      let camera,
+        scene,
+        renderer,
+        geometry,
+        material,
+        mesh,
+        controls,
+        pointLight;
+      var objects = [],
+        geometries = [];
+      const init = () => {
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x212121);
+
+        camera = new THREE.PerspectiveCamera(
+          50,
+          window.innerWidth / window.innerHeight,
+          1,
+          10000
+        );
+        camera.position.x = -116.10432912860549;
+        camera.position.y = 985.3300236613259;
+        camera.position.z = 102.75516661193184;
+
+        camera.scale.x = 1;
+        camera.scale.y = 1;
+        camera.scale.z = 1;
+
+        camera.rotation.x = -1.5628219001604122;
+        camera.rotation.y = -0.00005033048300282222;
+        camera.rotation.z = -0.006311268530836601;
+
+        scene.add(camera);
+
+        var helper = new THREE.GridHelper(2000, 50, 0x303030, 0x303030);
+        helper.position.y = -75;
+        scene.add(helper);
+
+        // geometry = new THREE.CubeGeometry(200, 200, 200);
+        // material = new THREE.MeshNormalMaterial();
+        // mesh = new THREE.Mesh(geometry, material);
+        // scene.add(mesh);
+
+        material = new THREE.MeshLambertMaterial({
+          color: 0xffffff,
+          side: THREE.DoubleSide
+        });
+
+        // materials.push(new THREE.MeshLambertMaterial({ color: 0xdddddd }));
+
+        geometries.push(new THREE.SphereBufferGeometry(100, 62, 46));
+
+        geometries.push(new THREE.IcosahedronBufferGeometry(100, 0));
+
+        geometries.push(new THREE.OctahedronBufferGeometry(100, 0));
+
+        geometries.push(new THREE.TetrahedronBufferGeometry(100, 0));
+
+        geometries.push(new THREE.PlaneBufferGeometry(150, 150, 4, 4));
+
+        geometries.push(new THREE.BoxBufferGeometry(150, 150, 150, 4, 4, 4));
+
+        geometries.push(
+          new THREE.CircleBufferGeometry(100, 20, 0, Math.PI * 2)
+        );
+
+        geometries.push(
+          new THREE.RingBufferGeometry(10, 100, 20, 5, 0, Math.PI * 2)
+        );
+
+        geometries.push(new THREE.CylinderBufferGeometry(50, 95, 100, 40, 5));
+
+        var points = [];
+        for (var i = 0; i < 50; i++) {
+          points.push(
+            new THREE.Vector2(
+              Math.sin(i * 0.2) * Math.sin(i * 0.1) * 15 + 50,
+              (i - 5) * 2
+            )
+          );
+        }
+        geometries.push(new THREE.LatheBufferGeometry(points, 50));
+
+        geometries.push(new THREE.TorusBufferGeometry(70, 30, 20, 20));
+
+        geometries.push(new THREE.TorusKnotBufferGeometry(70, 25, 50, 20));
+
+        // var geometry = new THREE.SphereBufferGeometry(70, 32, 16);
+
+        for (var i = 0, l = geometries.length; i < l; i++) {
+          addMesh(geometries[i], material);
+        }
+
+        scene.add(new THREE.AmbientLight(0x535353));
+
+        var directionalLight = new THREE.DirectionalLight(0xffffff, 0.125);
+
+        directionalLight.position.x = Math.random() - 0.5;
+        directionalLight.position.y = Math.random() - 0.5;
+        directionalLight.position.z = Math.random() - 0.5;
+        directionalLight.position.normalize();
+
+        scene.add(directionalLight);
+
+        pointLight = new THREE.PointLight(0xb4b3b3, 1);
+        scene.add(pointLight);
+
+        // pointLight.add(
+        //   new THREE.Mesh(
+        //     new THREE.SphereBufferGeometry(4, 8, 8),
+        //     new THREE.MeshBasicMaterial({ color: 0xfafafa })
+        //   )
+        // );
+
+        renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        // controls = new THREE.OrbitControls(camera, renderer.domElement);
+        document.body.appendChild(renderer.domElement);
+        window.scene = scene;
+      };
+
+      const render = () => {
+        requestAnimationFrame(render);
+
+        var timer = 0.0001 * Date.now();
+
+        for (var i = 0, l = objects.length; i < l; i++) {
+          var object = objects[i];
+
+          object.rotation.x += 0.01;
+          object.rotation.y += 0.005;
+        }
+
+        pointLight.position.x = Math.sin(timer * 7) * 300;
+        pointLight.position.y = Math.cos(timer * 5) * 400;
+        pointLight.position.z = Math.cos(timer * 3) * 300;
+
+        renderer.render(scene, camera);
+      };
+
+      function generateTexture() {
+        var canvas = document.createElement("canvas");
+        canvas.width = 256;
+        canvas.height = 256;
+
+        var context = canvas.getContext("2d");
+        var image = context.getImageData(0, 0, 256, 256);
+
+        var x = 0,
+          y = 0;
+
+        for (var i = 0, j = 0, l = image.data.length; i < l; i += 4, j++) {
+          x = j % 256;
+          y = x == 0 ? y + 1 : y;
+
+          image.data[i] = 255;
+          image.data[i + 1] = 255;
+          image.data[i + 2] = 255;
+          image.data[i + 3] = Math.floor(x ^ y);
+        }
+
+        context.putImageData(image, 0, 0);
+
+        return canvas;
+      }
+
+      function addMesh(geometry, material) {
+        var mesh = new THREE.Mesh(geometry, material);
+
+        mesh.position.x = (objects.length % 4) * 390 - 700;
+        mesh.position.z = Math.floor(objects.length / 4) * 300 - 240;
+
+        mesh.rotation.x = Math.random() * 300 - 100;
+        mesh.rotation.y = Math.random() * 300 - 100;
+        mesh.rotation.z = Math.random() * 300 - 100;
+
+        objects.push(mesh);
+
+        scene.add(mesh);
+      }
+
+      init();
+      render();
+    </script>
+  </body>
+</html>
