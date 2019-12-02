@@ -30,12 +30,6 @@
         scene.background = new THREE.Color(color);
         scene.fog = new THREE.Fog(color, near, far);
 
-        /*
-scene = new THREE.Scene();
-scene.background = new THREE.Color(0xcbc0e3);
-scene.fog = new THREE.Fog(0xcbc0e3, 2.3, 50);
-        */
-
         camera = new THREE.PerspectiveCamera(90, 1280 / 720, 0.1, 1000);
 
         mesh = new THREE.Mesh(
@@ -47,19 +41,18 @@ scene.fog = new THREE.Fog(0xcbc0e3, 2.3, 50);
         );
         mesh.position.y = 0.44;
         mesh.rotation.y = 0.7;
-        // The cube can have shadows cast onto it, and it can cast shadows
+
         mesh.receiveShadow = true;
         mesh.castShadow = true;
         scene.add(mesh);
 
         meshFloor = new THREE.Mesh(
           new THREE.PlaneGeometry(100, 100, 100, 100),
-          // MeshBasicMaterial does not react to lighting, so we replace with MeshPhongMaterial
+
           new THREE.MeshPhongMaterial({
             color: 0xffffff,
             wireframe: false
           })
-          // See threejs.org/examples/ for other material types
         );
         meshFloor.rotation.x -= Math.PI / 2;
         // Floor can have shadows cast onto it
@@ -73,7 +66,7 @@ scene.fog = new THREE.Fog(0xcbc0e3, 2.3, 50);
         light = new THREE.PointLight(0xffffff, 0.8, 18);
         light.position.set(-3, 6, -3);
         light.castShadow = true;
-        // Will not light anything closer than 0.1 units or further than 25 units
+
         light.shadow.camera.near = 0.1;
         light.shadow.camera.far = 25;
         scene.add(light);
@@ -84,7 +77,6 @@ scene.fog = new THREE.Fog(0xcbc0e3, 2.3, 50);
         renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
 
-        // Enable Shadows in the Renderer
         renderer.shadowMap.enabled = true;
         renderer.shadowMap.type = THREE.BasicShadowMap;
 
@@ -101,8 +93,6 @@ scene.fog = new THREE.Fog(0xcbc0e3, 2.3, 50);
 
       const render = () => {
         requestAnimationFrame(render);
-        // mesh.rotation.x += 0.005;
-        // mesh.rotation.y += 0.01;
         controls.update();
         renderer.render(scene, camera);
       };

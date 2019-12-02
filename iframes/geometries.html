@@ -135,17 +135,10 @@
         helper.position.y = -75;
         scene.add(helper);
 
-        // geometry = new THREE.CubeGeometry(200, 200, 200);
-        // material = new THREE.MeshNormalMaterial();
-        // mesh = new THREE.Mesh(geometry, material);
-        // scene.add(mesh);
-
         material = new THREE.MeshLambertMaterial({
           color: 0xffffff,
           side: THREE.DoubleSide
         });
-
-        // materials.push(new THREE.MeshLambertMaterial({ color: 0xdddddd }));
 
         geometries.push(new THREE.SphereBufferGeometry(100, 62, 46));
 
@@ -184,8 +177,6 @@
 
         geometries.push(new THREE.TorusKnotBufferGeometry(70, 25, 50, 20));
 
-        // var geometry = new THREE.SphereBufferGeometry(70, 32, 16);
-
         for (var i = 0, l = geometries.length; i < l; i++) {
           addMesh(geometries[i], material);
         }
@@ -204,16 +195,9 @@
         pointLight = new THREE.PointLight(0xb4b3b3, 1);
         scene.add(pointLight);
 
-        // pointLight.add(
-        //   new THREE.Mesh(
-        //     new THREE.SphereBufferGeometry(4, 8, 8),
-        //     new THREE.MeshBasicMaterial({ color: 0xfafafa })
-        //   )
-        // );
-
         renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
-        // controls = new THREE.OrbitControls(camera, renderer.domElement);
+
         document.body.appendChild(renderer.domElement);
         window.scene = scene;
       };
